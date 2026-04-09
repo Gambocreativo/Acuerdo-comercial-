@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acuerdo Comercial — Workbook de Cruceros Óscar Sandoval × Gambo Creativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #0B0F19;
+      --bg-alt:   #0F1420;
+      --surface:  #161D2E;
+      --border:   rgba(255,255,255,0.07);
+      --gold:     #C9A84C;
+      --gold-dim: rgba(201,168,76,0.13);
+      --ivory:    #F4EFE6;
+      --mist:     #7E8BA3;
+      --navy:     #1B2B4B;
+      --teal:     #2A7B7B;
+      --f-display: 'DM Serif Display', Georgia, serif;
+      --f-body:    'DM Sans', system-ui, sans-serif;
+      --r: 14px;
+      --gap: 110px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ivory); font-family: var(--f-body); font-weight: 300; line-height: 1.75; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 44px; }
+    .label { display: inline-block; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .h-display { font-family: var(--f-display); font-size: clamp(2.1rem, 4.5vw, 3.6rem); font-weight: 400; color: var(--ivory); line-height: 1.1; }
+    .h-section { font-family: var(--f-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 400; color: var(--ivory); line-height: 1.15; }
+    .body-sm { font-size: 0.9rem; color: var(--mist); line-height: 1.8; }
+    .rule { display: block; width: 40px; height: 1px; background: var(--gold); margin-bottom: 22px; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    [data-r] { opacity: 0; transform: translateY(22px); filter: blur(5px); transition: opacity 0.75s cubic-bezier(0.23,1,0.32,1), transform 0.75s cubic-bezier(0.23,1,0.32,1), filter 0.75s cubic-bezier(0.23,1,0.32,1); }
+    [data-r].on { opacity:1; transform:translateY(0); filter:blur(0); }
+    [data-r][data-d="1"] { transition-delay: 0.10s; }
+    [data-r][data-d="2"] { transition-delay: 0.20s; }
+    [data-r][data-d="3"] { transition-delay: 0.30s; }
+    [data-r][data-d="4"] { transition-delay: 0.40s; }
+    [data-r][data-d="5"] { transition-delay: 0.50s; }
+    .topbar { padding: 22px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: center; }
+    .topbar-inner { display: flex; align-items: center; gap: 28px; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mist); }
+    .topbar-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.5; }
+    #hero { position: relative; padding: 100px 0 110px; text-align: center; overflow: hidden; }
+    #hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(201,168,76,0.18) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%); }
+    #hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(27,43,75,0.55) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(201,168,76,0.3); border-radius: 100px; padding: 7px 20px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.4; transform:scale(0.7); } }
+    .hero-title { font-family: var(--f-display); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; color: var(--ivory); line-height: 1.06; letter-spacing: -0.01em; max-width: 800px; margin: 0 auto 16px; }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 0.95rem; color: var(--mist); max-width: 500px; margin: 16px auto 52px; line-height: 1.75; }
+    .hero-parties { display: inline-flex; align-items: center; gap: 0; border: 1px solid var(--border); border-radius: 100px; overflow: hidden; }
+    .party { padding: 14px 36px; font-size: 0.82rem; font-weight: 400; color: var(--ivory); letter-spacing: 0.04em; white-space: nowrap; }
+    .party.a { background: var(--navy); }
+    .party.b { background: var(--teal); }
+    .party-sep { padding: 14px 18px; font-size: 0.7rem; color: var(--gold); background: var(--surface); font-weight: 500; letter-spacing: 0.1em; }
+    .hero-date { margin-top: 28px; font-size: 0.72rem; color: var(--mist); letter-spacing: 0.12em; text-transform: uppercase; }
+    #objeto { padding: var(--gap) 0; background: var(--bg-alt); }
+    .objeto-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .price-block { background: var(--surface); border: 1px solid rgba(201,168,76,0.18); border-radius: 20px; padding: 48px 44px; text-align: center; position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .price-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .price-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .price-amount { font-family: var(--f-display); font-size: 5.5rem; font-weight: 400; color: var(--ivory); line-height: 1; letter-spacing: -0.02em; }
+    .price-currency { font-family: var(--f-display); font-size: 2rem; color: var(--gold); vertical-align: super; font-style: italic; }
+    .price-desc { font-size: 0.82rem; color: var(--mist); margin-top: 16px; line-height: 1.65; }
+    .price-sep { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+    .price-split { display: flex; gap: 16px; }
+    .split-half { flex: 1; background: var(--bg); border-radius: 10px; padding: 18px 14px; }
+    .split-pct { font-family: var(--f-display); font-size: 2rem; color: var(--gold); display: block; line-height: 1; }
+    .split-name { font-size: 0.72rem; color: var(--mist); margin-top: 6px; letter-spacing: 0.06em; }
+    #roles { padding: var(--gap) 0; background: var(--bg); }
+    .roles-header { text-align: center; margin-bottom: 60px; }
+    .roles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .role-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 40px 36px; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .role-card:hover { transform: translateY(-5px); box-shadow: 0 20px 56px rgba(0,0,0,0.45); }
+    .role-card.cliente::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--navy), var(--gold)); }
+    .role-card.jorge::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    .role-chip { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
+    .role-chip.c { background: rgba(27,43,75,0.7); color: #7EA6E0; border: 1px solid rgba(27,43,75,0.9); }
+    .role-chip.j { background: rgba(42,123,123,0.2); color: #6EC9C9; border: 1px solid rgba(42,123,123,0.4); }
+    .role-card h3 { font-family: var(--f-display); font-size: 1.55rem; font-weight: 400; color: var(--ivory); margin-bottom: 6px; }
+    .role-card .role-subtitle { font-size: 0.78rem; color: var(--mist); margin-bottom: 28px; letter-spacing: 0.05em; }
+    .resp-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .resp-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.875rem; color: #B8C2D4; line-height: 1.6; }
+    .resp-list li::before { content: '⟶'; color: var(--gold); font-size: 0.7rem; margin-top: 4px; flex-shrink: 0; }
+    .role-note { margin-top: 22px; padding: 14px 18px; background: rgba(201,168,76,0.06); border-left: 2px solid var(--gold); border-radius: 0 8px 8px 0; font-size: 0.78rem; color: var(--mist); font-style: italic; line-height: 1.6; }
+    #economia { padding: var(--gap) 0; background: var(--navy); position: relative; overflow: hidden; }
+    #economia::before { content: '$'; position: absolute; font-family: var(--f-display); font-size: 50vw; color: rgba(255,255,255,0.02); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; line-height: 1; }
+    .econ-header { text-align: center; margin-bottom: 64px; }
+    .econ-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+    .econ-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r); padding: 34px 28px; transition: background 0.3s ease; }
+    .econ-card:hover { background: rgba(255,255,255,0.07); }
+    .econ-tag { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; display: block; }
+    .econ-total { font-family: var(--f-display); font-size: 2.4rem; color: var(--ivory); line-height: 1; margin-bottom: 4px; }
+    .econ-total-label { font-size: 0.75rem; color: var(--mist); margin-bottom: 20px; }
+    .econ-bar { height: 4px; border-radius: 100px; background: var(--border); margin-bottom: 18px; overflow: hidden; }
+    .econ-bar-fill { height: 100%; width: 50%; background: linear-gradient(90deg, var(--gold), #e8c96a); border-radius: 100px; }
+    .econ-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.82rem; }
+    .econ-row:last-child { border-bottom: none; }
+    .econ-row .party-label { color: var(--mist); }
+    .econ-row .party-value { color: var(--ivory); font-weight: 500; }
+    .econ-row .party-value.gold { color: var(--gold); }
+    .econ-footnote { font-size: 0.72rem; color: var(--mist); margin-top: 14px; line-height: 1.55; padding-top: 14px; border-top: 1px solid var(--border); }
+    #adicional { padding: var(--gap) 0; background: var(--bg-alt); }
+    .adicional-header { margin-bottom: 60px; }
+    .adicional-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .neg-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 40px 36px; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+    .neg-card.asesorias::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #7EA6E0, transparent); }
+    .neg-card.storytelling::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #6EC9C9, transparent); }
+    .neg-price { font-family: var(--f-display); font-size: 3rem; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .neg-currency { font-size: 0.75rem; color: var(--mist); margin-bottom: 24px; letter-spacing: 0.06em; }
+    .neg-card h3 { font-family: var(--f-display); font-size: 1.4rem; color: var(--ivory); margin-bottom: 6px; }
+    .neg-desc { font-size: 0.85rem; color: var(--mist); line-height: 1.7; margin-bottom: 28px; }
+    .neg-split { display: flex; gap: 12px; }
+    .neg-half { flex: 1; border-radius: 10px; padding: 16px 14px; text-align: center; }
+    .neg-half.primary { background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25); }
+    .neg-half.secondary { background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+    .neg-half .pct { font-family: var(--f-display); font-size: 2rem; color: var(--gold); display: block; line-height: 1; }
+    .neg-half.secondary .pct { color: var(--mist); }
+    .neg-half .who { font-size: 0.7rem; color: var(--mist); margin-top: 5px; letter-spacing: 0.06em; }
+    .neg-example { margin-top: 22px; background: rgba(201,168,76,0.06); border-radius: 10px; padding: 16px 18px; }
+    .neg-example .ex-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .neg-example .ex-row { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .neg-example .ex-row:last-child { border-bottom: none; }
+    .neg-example .ex-who { color: var(--mist); }
+    .neg-example .ex-val { color: var(--ivory); font-weight: 400; }
+    .neg-example .ex-val.highlight { color: var(--gold); }
+    #condiciones { padding: var(--gap) 0; background: var(--bg); }
+    .cond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .timeline { margin-top: 32px; display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; gap: 20px; padding-bottom: 32px; position: relative; }
+    .tl-item:not(:last-child)::after { content: ''; position: absolute; left: 15px; top: 32px; bottom: 0; width: 1px; background: var(--border); }
+    .tl-dot { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--gold); background: var(--bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.7rem; color: var(--gold); font-weight: 500; }
+    .tl-content h5 { font-family: var(--f-display); font-size: 1.05rem; color: var(--ivory); margin-bottom: 4px; }
+    .tl-content p { font-size: 0.83rem; color: var(--mist); line-height: 1.65; }
+    .cond-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+    .cond-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; display: flex; gap: 18px; align-items: flex-start; }
+    .cond-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; opacity: 0.8; }
+    .cond-card h5 { font-size: 0.9rem; font-weight: 500; color: var(--ivory); margin-bottom: 4px; }
+    .cond-card p { font-size: 0.8rem; color: var(--mist); line-height: 1.65; }
+    #transparencia { padding: var(--gap) 0; background: var(--bg-alt); }
+    .transp-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .access-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .chip { display: flex; align-items: center; gap: 9px; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 10px 20px; font-size: 0.8rem; color: var(--ivory); transition: border-color 0.2s, background 0.2s; }
+    .chip:hover { border-color: rgba(201,168,76,0.35); background: var(--gold-dim); }
+    .chip-icon { color: var(--gold); font-size: 0.85rem; }
+    .report-table { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+    .report-table-head { background: var(--gold-dim); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .report-table-head span { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .report-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--border); font-size: 0.83rem; }
+    .report-row:last-child { border-bottom: none; }
+    .report-row .rk { color: var(--mist); }
+    .report-row .rv { color: var(--ivory); }
+    #pago { padding: var(--gap) 0; background: var(--navy); position: relative; overflow: hidden; }
+    #pago::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+    #pago::after { content: ''; position: absolute; width: 380px; height: 380px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.08); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+    .pago-inner { position: relative; z-index: 2; text-align: center; max-width: 680px; margin: 0 auto; }
+    .pago-highlight { font-family: var(--f-display); font-size: clamp(4rem, 10vw, 8rem); color: var(--gold); line-height: 1; margin: 24px 0 8px; letter-spacing: -0.02em; }
+    .pago-highlight-label { font-size: 0.9rem; color: var(--mist); margin-bottom: 48px; }
+    .metodos-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 40px; }
+    .metodo-pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 10px 22px; font-size: 0.8rem; color: var(--ivory); letter-spacing: 0.04em; }
+    #terminacion { padding: var(--gap) 0; background: var(--bg); }
+    .term-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
+    .term-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 32px 28px; position: relative; overflow: hidden; }
+    .term-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); opacity: 0.4; }
+    .term-num { font-family: var(--f-display); font-size: 3rem; color: var(--gold); opacity: 0.2; line-height: 1; margin-bottom: 16px; }
+    .term-card h4 { font-size: 0.9rem; font-weight: 500; color: var(--ivory); margin-bottom: 8px; }
+    .term-card p { font-size: 0.82rem; color: var(--mist); line-height: 1.7; }
+    #firma { padding: var(--gap) 0 80px; background: var(--bg-alt); }
+    .firma-header { text-align: center; margin-bottom: 64px; }
+    .firma-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 760px; margin: 0 auto; }
+    .firma-block { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 40px 36px; display: flex; flex-direction: column; gap: 0; }
+    .firma-party-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .firma-field { height: 44px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 10px; }
+    .firma-field-label { font-size: 0.7rem; color: var(--mist); letter-spacing: 0.1em; }
+    .firma-block .party-name { font-family: var(--f-display); font-size: 1.5rem; color: var(--ivory); margin-bottom: 4px; }
+    .firma-block .party-role { font-size: 0.75rem; color: var(--mist); letter-spacing: 0.06em; }
+    .firma-legal { text-align: center; margin-top: 52px; font-size: 0.75rem; color: var(--mist); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; border-top: 1px solid var(--border); padding-top: 36px; }
+    .firma-legal strong { color: var(--gold); }
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 32px 0; text-align: center; }
+    footer p { font-size: 0.72rem; color: var(--mist); letter-spacing: 0.08em; }
+    footer strong { color: var(--gold); }
+    @media (max-width: 1024px) { :root { --gap: 80px; } .econ-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { :root { --gap: 60px; } .wrap { padding: 0 24px; } .objeto-inner, .roles-grid, .adicional-grid, .cond-grid, .transp-inner, .firma-grid { grid-template-columns: 1fr; } .econ-grid { grid-template-columns: 1fr; } .term-grid { grid-template-columns: 1fr; } .hero-parties { flex-direction: column; border-radius: 16px; } .party-sep { padding: 10px 28px; } }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span>Acuerdo Comercial</span>
+      <div class="topbar-dot"></div>
+      <span>Workbook de Cruceros</span>
+      <div class="topbar-dot"></div>
+      <span>Óscar Sandoval x Gambo Creativo</span>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-badge" data-r>Acuerdo Comercial Vigente</div>
+        <h1 class="hero-title" data-r data-d="1">Workbook de Cruceros<br/><em> Óscar Sandoval × Gambo Creativo</em></h1>
+        <p class="hero-sub" data-r data-d="2">Acuerdo de colaboración para la comercialización del workbook de cruceros USD 70, creación de contenido, promoción en redes sociales y distribución de ganancias 50/50.</p>
+        <div class="hero-parties" data-r data-d="3">
+          <div class="party a">Óscar Sandoval — Dueño del Workbook</div>
+          <div class="party-sep">×</div>
+          <div class="party b">Jorge / Gambo Creativo</div>
+        </div>
+        <p class="hero-date" data-r data-d="4">Vigente a partir de la publicación del primer video</p>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="objeto">
+    <div class="wrap">
+      <div class="objeto-inner">
+        <div data-r>
+          <span class="label">Objeto del acuerdo</span>
+          <span class="rule"></span>
+          <h2 class="h-display">Comercializar el workbook.<br/>Dividir las ganancias.</h2>
+          <p class="body-sm" style="margin-top:20px;">El acuerdo establece las condiciones de trabajo para la comercialización del <strong style="color:var(--ivory)">workbook de cruceros con valor de USD 70</strong>, junto con la creación, distribución y promoción del contenido en redes sociales, con el fin de generar ventas para ambas partes.</p>
+          <p class="body-sm" style="margin-top:14px;">Todas las ventas del workbook realizadas durante la vigencia del acuerdo — sin importar el canal — forman parte de la sociedad y se distribuyen en partes exactamente iguales.</p>
+        </div>
+        <div class="price-block" data-r data-d="2">
+          <p class="price-label">Precio de venta al público</p>
+          <div class="price-amount"><span class="price-currency">USD</span>70</div>
+          <p class="price-desc">Precio fijo del workbook. Las comisiones de plataforma (Hotmart, tarjeta, banco) se descuentan del bruto antes de realizar el split.</p>
+          <hr class="price-sep" />
+          <p class="price-label">Distribución de ganancias netas</p>
+          <div class="price-split">
+            <div class="split-half"><span class="split-pct">50%</span><div class="split-name">Óscar</div></div>
+            <div class="split-half"><span class="split-pct">50%</span><div class="split-name">Jorge / Gambo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="roles">
+    <div class="wrap">
+      <div class="roles-header" data-r>
+        <span class="label">Roles y responsabilidades</span>
+        <span class="rule" style="margin:0 auto 22px;"></span>
+        <h2 class="h-display">Cada parte, su rol.<br/>Sin ambigüedad.</h2>
+      </div>
+      <div class="roles-grid">
+        <div class="role-card cliente" data-r data-d="1">
+          <div class="role-chip c">Óscar Sandoval</div>
+          <h3>Dueño del Workbook</h3>
+          <p class="role-subtitle">Responsable del producto y del cierre de ventas</p>
+          <ul class="resp-list">
+            <li>Tener disponible el workbook y mantenerlo actualizado</li>
+            <li>Subir el producto a Hotmart y gestionar la plataforma</li>
+            <li>Gestionar el proceso de cierre de ventas por WhatsApp u otro medio</li>
+            <li>Atender mensajes y cerrar todas las ventas activamente</li>
+            <li>Entregar el reporte de ventas de forma mensual y detallada</li>
+          </ul>
+        </div>
+        <div class="role-card jorge" data-r data-d="2">
+          <div class="role-chip j">Jorge / Gambo Creativo</div>
+          <h3>Estrategia & Contenido</h3>
+          <p class="role-subtitle">Responsable de la presencia digital y la promoción</p>
+          <ul class="resp-list">
+            <li>Crear la estrategia de contenido para las redes sociales</li>
+            <li>Grabar, editar y publicar el contenido en todas las plataformas</li>
+            <li>Gestionar activamente las redes sociales del proyecto</li>
+            <li>Distribuir el contenido para maximizar el alcance orgánico</li>
+            <li>Promocionar el workbook para generar ventas de forma constante</li>
+          </ul>
+          <div class="role-note">ℹ️ Jorge no será responsable de responder mensajes ni cerrar ventas. Esa responsabilidad recae exclusivamente en el cliente.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="economia">
+    <div class="wrap">
+      <div class="econ-header" data-r>
+        <span class="label">Modelo económico</span>
+        <span class="rule" style="margin:0 auto 22px;"></span>
+        <h2 class="h-display">Distribución según el canal de venta</h2>
+        <p class="body-sm" style="margin:16px auto 0; max-width:540px; text-align:center;">El split 50/50 se aplica siempre sobre el valor neto recibido, es decir, después de descontar las comisiones de la plataforma.</p>
+      </div>
+      <div class="econ-grid">
+        <div class="econ-card" data-r data-d="1">
+          <span class="econ-tag">Venta por Hotmart</span>
+          <div class="econ-total">~USD 64</div>
+          <div class="econ-total-label">Valor neto después de comisiones de plataforma</div>
+          <div class="econ-bar"><div class="econ-bar-fill"></div></div>
+          <div class="econ-row"><span class="party-label">Óscar Sandoval (50%)</span><span class="party-value">USD 32</span></div>
+          <div class="econ-row"><span class="party-label">Jorge / Gambo (50%)</span><span class="party-value gold">USD 32</span></div>
+          <p class="econ-footnote">El valor de USD 64 es referencial. El split exacto se calcula sobre el valor neto real reportado por Hotmart en cada cierre.</p>
+        </div>
+        <div class="econ-card" data-r data-d="2">
+          <span class="econ-tag">Venta directa / Transferencia</span>
+          <div class="econ-total">USD 70</div>
+          <div class="econ-total-label">Valor completo sin comisiones de plataforma</div>
+          <div class="econ-bar"><div class="econ-bar-fill"></div></div>
+          <div class="econ-row"><span class="party-label">Óscar Sandoval (50%)</span><span class="party-value">USD 35</span></div>
+          <div class="econ-row"><span class="party-label">Jorge / Gambo (50%)</span><span class="party-value gold">USD 35</span></div>
+          <p class="econ-footnote">Aplica para ventas realizadas por WhatsApp, transferencia bancaria o cualquier canal donde el precio llegue completo.</p>
+        </div>
+        <div class="econ-card" data-r data-d="3">
+          <span class="econ-tag">Cualquier otro medio</span>
+          <div class="econ-total">50 / 50</div>
+          <div class="econ-total-label">Regla universal: siempre sobre el valor neto recibido</div>
+          <div class="econ-bar"><div class="econ-bar-fill"></div></div>
+          <div class="econ-row"><span class="party-label">Canal de origen</span><span class="party-value">Irrelevante</span></div>
+          <div class="econ-row"><span class="party-label">Aplica a</span><span class="party-value gold">Todas las ventas</span></div>
+          <p class="econ-footnote">No importa si el cliente llegó por Jorge o por el otro socio. Todas las ventas del workbook vigentes forman parte del acuerdo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="adicional">
+    <div class="wrap">
+      <div class="adicional-header" data-r>
+        <span class="label">Negocios adicionales</span>
+        <span class="rule"></span>
+        <h2 class="h-display">Más allá del workbook</h2>
+        <p class="body-sm" style="margin-top:14px; max-width:560px;">Ambas partes acuerdan trabajar conjuntamente en la promoción de asesorías personalizadas y cursos, con porcentajes de referido claramente definidos para cada producto.</p>
+      </div>
+      <div class="adicional-grid">
+        <div class="neg-card asesorias" data-r data-d="1">
+          <p class="neg-price">$3.000.000</p>
+          <p class="neg-currency">COP — Por asesoría personalizada de Óscar</p>
+          <h3>Asesorías Personalizadas</h3>
+          <p class="neg-desc">Jorge colabora en el contenido, promoción y generación de clientes potenciales que llegan a las asesorías del cliente. Por ello recibe el 25% de cada asesoría vendida mientras el contenido y la estrategia de Jorge continúen siendo utilizados.</p>
+          <div class="neg-split">
+            <div class="neg-half secondary"><span class="pct">75%</span><div class="who">Óscar Sandoval</div></div>
+            <div class="neg-half primary"><span class="pct">25%</span><div class="who">Jorge / Gambo</div></div>
+          </div>
+          <div class="neg-example">
+            <p class="ex-label">Ejemplo con $3.000.000 COP</p>
+            <div class="ex-row"><span class="ex-who">Óscar Sandoval (75%)</span><span class="ex-val">$2.250.000 COP</span></div>
+            <div class="ex-row"><span class="ex-who">Jorge / Gambo (25%)</span><span class="ex-val highlight">$750.000 COP</span></div>
+          </div>
+        </div>
+        <div class="neg-card storytelling" data-r data-d="2">
+          <p class="neg-price">$600.000</p>
+          <p class="neg-currency">COP — Por cupo en el curso de storytelling de Jorge</p>
+          <h3>Curso de Storytelling</h3>
+          <p class="neg-desc">Cuando Óscar refiere estudiantes al curso de storytelling de Jorge y el pago se realiza efectivamente, Óscar recibe el 25% del valor de cada cupo vendido a través de su referido.</p>
+          <div class="neg-split">
+            <div class="neg-half primary"><span class="pct">75%</span><div class="who">Jorge</div></div>
+            <div class="neg-half secondary"><span class="pct">25%</span><div class="who">Óscar Sandoval</div></div>
+          </div>
+          <div class="neg-example">
+            <p class="ex-label">Ejemplo con $600.000 COP</p>
+            <div class="ex-row"><span class="ex-who">Jorge (75%)</span><span class="ex-val">$450.000 COP</span></div>
+            <div class="ex-row"><span class="ex-who">Óscar (25%)</span><span class="ex-val highlight">$150.000 COP</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="condiciones">
+    <div class="wrap">
+      <div class="cond-grid">
+        <div>
+          <div data-r>
+            <span class="label">Duración del acuerdo</span>
+            <span class="rule"></span>
+            <h2 class="h-section">Tres meses mínimos.<br/>Después, indefinido.</h2>
+            <p class="body-sm" style="margin-top:14px;">El acuerdo tiene una duración mínima inicial de tres meses contados desde la publicación del primer video. Luego continúa automáticamente hasta que alguna de las partes decida terminarlo.</p>
+          </div>
+          <div class="timeline">
+            <div class="tl-item" data-r data-d="1"><div class="tl-dot">1</div><div class="tl-content"><h5>Inicio — Primer video publicado</h5><p>La vigencia comienza desde el día de publicación del primer video en redes sociales. Este es el punto cero del acuerdo.</p></div></div>
+            <div class="tl-item" data-r data-d="2"><div class="tl-dot">2</div><div class="tl-content"><h5>3 meses — Período mínimo obligatorio</h5><p>Durante los primeros tres meses ninguna de las partes puede terminar el acuerdo unilateralmente. Es el período de compromiso base.</p></div></div>
+            <div class="tl-item" data-r data-d="3"><div class="tl-dot">∞</div><div class="tl-content"><h5>Mes 4 en adelante — Renovación automática</h5><p>El acuerdo continúa de forma indefinida. Cualquier parte puede terminarlo notificando con mínimo 30 días de anticipación por escrito.</p></div></div>
+          </div>
+        </div>
+        <div>
+          <div data-r style="margin-bottom: 28px;"><span class="label">Reglas importantes</span><span class="rule"></span><h2 class="h-section">Protecciones para<br/>ambas partes</h2></div>
+          <div class="cond-cards">
+            <div class="cond-card" data-r data-d="1"><div class="cond-icon">⏳</div><div><h5>Ventas antes de la terminación</h5><p>Las ventas realizadas antes de la fecha de terminación del acuerdo seguirán siendo liquidadas normalmente, sin excepción.</p></div></div>
+            <div class="cond-card" data-r data-d="2"><div class="cond-icon">🎬</div><div><h5>Uso continuo del contenido</h5><p>Si Óscar sigue utilizando los videos, la estrategia o el contenido creado por Jorge después de terminar el acuerdo, se deberá mantener el pago del porcentaje correspondiente.</p></div></div>
+            <div class="cond-card" data-r data-d="3"><div class="cond-icon">📅</div><div><h5>Pago mensual — Primeros 5 días hábiles</h5><p>El pago a Jorge se realiza dentro de los primeros 5 días hábiles de cada mes, con base en las ventas generadas el mes anterior.</p></div></div>
+            <div class="cond-card" data-r data-d="4"><div class="cond-icon">🔔</div><div><h5>Preaviso de terminación</h5><p>Mínimo 30 días de anticipación por escrito para terminar el acuerdo. Sin este preaviso, el acuerdo se considera vigente.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="transparencia">
+    <div class="wrap">
+      <div class="transp-inner">
+        <div>
+          <div data-r><span class="label">Transparencia total</span><span class="rule"></span><h2 class="h-section">Acceso garantizado<br/>para Jorge</h2><p class="body-sm" style="margin-top:14px;">Para garantizar transparencia y confianza en el acuerdo, Óscar se compromete a dar a Jorge acceso verificable a todos los canales donde se registren ventas o pagos.</p></div>
+          <div class="access-chips" data-r data-d="2">
+            <div class="chip"><span class="chip-icon">📊</span> Panel de Hotmart</div>
+            <div class="chip"><span class="chip-icon">💬</span> WhatsApp / Registro de ventas</div>
+            <div class="chip"><span class="chip-icon">💳</span> Plataformas de pago</div>
+            <div class="chip"><span class="chip-icon">🏦</span> Comprobantes bancarios</div>
+            <div class="chip"><span class="chip-icon">📱</span> Cualquier otro canal activo</div>
+          </div>
+        </div>
+        <div data-r data-d="2">
+          <p class="label" style="margin-bottom:16px;">Reporte mensual obligatorio</p>
+          <div class="report-table">
+            <div class="report-table-head"><span>Campo del reporte</span><span>Incluye</span></div>
+            <div class="report-row"><span class="rk">Número de ventas</span><span class="rv">Total del mes</span></div>
+            <div class="report-row"><span class="rk">Valor total facturado</span><span class="rv">Bruto USD</span></div>
+            <div class="report-row"><span class="rk">Plataforma por venta</span><span class="rv">Canal exacto</span></div>
+            <div class="report-row"><span class="rk">Comisiones descontadas</span><span class="rv">Monto por plataforma</span></div>
+            <div class="report-row"><span class="rk">Valor neto recibido</span><span class="rv">Base del split</span></div>
+            <div class="report-row"><span class="rk">Valor correspondiente a Jorge</span><span class="rv" style="color:var(--gold);">50% del neto</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="pago">
+    <div class="wrap">
+      <div class="pago-inner">
+        <div data-r><span class="label">Condiciones de pago</span></div>
+        <div class="pago-highlight" data-r data-d="1">5</div>
+        <p class="pago-highlight-label" data-r data-d="1">días hábiles máximo desde el inicio de cada mes para pagar el mes anterior</p>
+        <p class="body-sm" data-r data-d="2" style="max-width:500px; margin: 0 auto;">El pago se realiza mensualmente, dentro de los primeros 5 días hábiles del mes siguiente a las ventas reportadas. Ambas partes eligen el método más conveniente para el pago de entre los siguientes:</p>
+        <div class="metodos-grid" data-r data-d="3">
+          <div class="metodo-pill">Transferencia Bancaria</div>
+          <div class="metodo-pill">Nequi</div>
+          <div class="metodo-pill">Daviplata</div>
+          <div class="metodo-pill">PayPal</div>
+          <div class="metodo-pill">Otro medio acordado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="terminacion">
+    <div class="wrap">
+      <div data-r style="text-align:center; margin-bottom:0;">
+        <span class="label">Terminación del acuerdo</span>
+        <span class="rule" style="margin:0 auto 22px;"></span>
+        <h2 class="h-display">Salida limpia y protegida</h2>
+        <p class="body-sm" style="margin:14px auto 0; max-width:500px; text-align:center;">Cualquiera de las partes puede terminar el acuerdo. Pero hay condiciones que protegen el trabajo realizado por ambos lados.</p>
+      </div>
+      <div class="term-grid">
+        <div class="term-card" data-r data-d="1"><div class="term-num">30</div><h4>Días de preaviso obligatorio</h4><p>El aviso de terminación debe darse por escrito con un mínimo de 30 días de anticipación. Sin este aviso, el acuerdo se mantiene vigente.</p></div>
+        <div class="term-card" data-r data-d="2"><div class="term-num">✓</div><h4>Ventas previas liquidadas</h4><p>Las ventas realizadas antes de la fecha de terminación serán liquidadas y pagadas normalmente, respetando el split acordado sin excepción.</p></div>
+        <div class="term-card" data-r data-d="3"><div class="term-num">∞</div><h4>Derecho sobre contenido en uso</h4><p>Si continúa usando los videos, la estrategia o el contenido creado por Jorge, el porcentaje sobre las ventas generadas se mantiene vigente.</p></div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <section id="firma">
+    <div class="wrap">
+      <div class="firma-header" data-r>
+        <span class="label">Firma del acuerdo</span>
+        <span class="rule" style="margin:0 auto 22px;"></span>
+        <h2 class="h-display">Ambas partes,<br/><em style="font-style:italic; color:var(--gold);">de acuerdo.</em></h2>
+        <p class="body-sm" style="margin:16px auto 0; max-width:480px; text-align:center;">Al firmar, ambas partes declaran haber leído, comprendido y aceptado todas las condiciones de este acuerdo comercial.</p>
+      </div>
+      <div class="firma-grid">
+        <div class="firma-block" data-r data-d="1">
+          <span class="firma-party-label">Parte A — Óscar Sandoval</span>
+          <div class="party-name">Óscar</div>
+          <div class="party-role">Workbook de Cruceros · Education MPS7</div>
+          <div class="firma-field" style="margin-top:36px;"></div>
+          <span class="firma-field-label">Nombre completo</span>
+          <div class="firma-field" style="margin-top:20px;"></div>
+          <span class="firma-field-label">Firma</span>
+          <div class="firma-field" style="margin-top:20px;"></div>
+          <span class="firma-field-label">Fecha</span>
+        </div>
+        <div class="firma-block" data-r data-d="2">
+          <span class="firma-party-label">Parte B — Jorge / Gambo Creativo</span>
+          <div class="party-name">Jorge</div>
+          <div class="party-role">Gambo Creativo · Estrategia & Contenido</div>
+          <div class="firma-field" style="margin-top:36px;"></div>
+          <span class="firma-field-label">Nombre completo</span>
+          <div class="firma-field" style="margin-top:20px;"></div>
+          <span class="firma-field-label">Firma</span>
+          <div class="firma-field" style="margin-top:20px;"></div>
+          <span class="firma-field-label">Fecha</span>
+        </div>
+      </div>
+      <p class="firma-legal" data-r>Este documento ha sido revisado y acordado por ambas partes de buena fe. Constituye un <strong>acuerdo comercial vinculante</strong> entre Óscar Sandoval y Jorge / Gambo Creativo. Cualquier modificación deberá realizarse por escrito y ser aceptada por ambas partes antes de entrar en vigor.</p>
+    </div>
+  </section>
+  <hr class="divider" />
+
+  <!-- ================================================================
+       SECCIÓN DESCARGA
+  ================================================================ -->
+  <section id="descargar" style="background:var(--bg);padding:90px 0;border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,0.12) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;mask-image:radial-gradient(ellipse 70% 80% at 50% 50%,black 20%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 50%,black 20%,transparent 100%);"></div>
+    <div class="wrap" style="position:relative;z-index:2;">
+      <div data-r>
+        <span class="label">Documento listo para firmar</span>
+        <span class="rule" style="margin:0 auto 22px;"></span>
+        <h2 class="h-display" style="margin-bottom:16px;">Descarga el contrato<br/><em style="color:var(--gold);font-style:italic;">y fírmalo.</em></h2>
+        <p class="body-sm" style="max-width:460px;margin:0 auto 52px;text-align:center;">
+          El PDF incluye portada exclusiva, todas las cláusulas del acuerdo
+          y los bloques de firma para ambas partes. Listo para imprimir o firmar digitalmente.
+        </p>
+
+        <button id="btn-descargar" onclick="downloadContrato()"
+          style="display:inline-flex;align-items:center;gap:14px;background:var(--gold);color:#0B0F19;border:none;border-radius:100px;padding:20px 52px;font-family:var(--f-body);font-size:0.88rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:transform 0.25s ease,box-shadow 0.25s ease;box-shadow:0 8px 32px rgba(201,168,76,0.25);"
+          onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 56px rgba(201,168,76,0.4)'"
+          onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 32px rgba(201,168,76,0.25)'">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Descargar contrato para firma
+        </button>
+
+        <p style="margin-top:22px;font-size:0.72rem;color:var(--mist);letter-spacing:0.1em;text-transform:uppercase;">
+          PDF &nbsp;·&nbsp; 3 páginas &nbsp;·&nbsp; Portada exclusiva + Cláusulas + Bloques de firma
+        </p>
+
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:32px;flex-wrap:wrap;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:8px 18px;font-size:0.75rem;color:var(--mist);">🔒 Documento confidencial</div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:8px 18px;font-size:0.75rem;color:var(--mist);">📄 Formato PDF estándar</div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:8px 18px;font-size:0.75rem;color:var(--mist);">✍️ Listo para firmar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var _PDF_B64 = "JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyAxMSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCAxMCAwIFIgL1Jlc291cmNlcyA8PAovRXh0R1N0YXRlIDw8Ci9nUkxzMCA8PAovY2EgLjI1Cj4+IC9nUkxzMSA8PAovY2EgMQo+PiAvZ1JMczIgPDwKL0NBIC4wOAo+PiAvZ1JMczMgPDwKL0NBIDEKPj4KPj4gL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL0NvbnRlbnRzIDEyIDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDEwIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9Db250ZW50cyAxMyAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCAxMCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKOCAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDEwIDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKOSAwIG9iago8PAovQXV0aG9yIChHYW1ibyBDcmVhdGl2bykgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MDQwODIzNDkyMyswMCcwMCcpIC9DcmVhdG9yIChhbm9ueW1vdXMpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MDQwODIzNDkyMyswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChDb250cmF0byBcMjA1IENvbmZpcm1hY2lcMzYzbiBkZSBBY3VlcmRvIENvbWVyY2lhbCkgL1RpdGxlIChBY3VlcmRvIFwzMjNzY2FyIFNhbmRvdmFsIFwzMjcgR2FtYm8gQ3JlYXRpdm8pIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKMTAgMCBvYmoKPDwKL0NvdW50IDMgL0tpZHMgWyA1IDAgUiA2IDAgUiA3IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKMTEgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMTM0MAo+PgpzdHJlYW0KR2F0VTI5bEN0MCZBQFA5UXQpVGZfcjorVmtmQWNtXnBPTVI4USE4PkFcRTlDPTslaTFkX0ZcdThnSUpDZ04haUJuLVRccjJmQmB0NlIjKSNfcjYqVyFyMCFNcEUndURfO1pNNCRPciJlMypTNCtDLWxxYFYiJWMqcldZIyk1bF0zNExMOmRTOnNOMjQpTVJxJTZmNWBZXTErYmQ6QmxMLiNIRURBOk4hWCZhNk9GcTZSaVhcXWk/WmhDLitacVszYFhPXGNlMkZfQWNZO0BpZ1peNiI3KG9iT1AkQ1h0UjZzKmsnOVxgYzIzWE1zZitPWzYsMko4MGE1K0pnXj5raUIuMls3XkFAUV1mdD0qO0szO2NKJ0dQWmRLclJsSzlfYk85Ky5lUDNNY2puL2pwb2pNaU1yPElbKDk7MiZVKklvR0JBImFPYFBnOj1fPDBAVDAhdSpZSmo3M2BTWictNEBzdSg3ZztaVjciUFdRYFFhSFBhakhVUTEySEY5V1dzPVNBREolNlFJJVkpXlY8ZElLWkBFTSkkaUxPWUopNTBaW106JktnRWo+PVI8bkNXXWMxU1ZhNW9gTiJdMVZeI2dWS2MvLz0pNERDQTBeXVY9NFpmalswXC80ZjxgUDs9Xz9PLW4qNFAtRidkKU8pVkxmTigpKUk7NjQpcyJkLT1eU08wLWI6MTtPK01nND5UXnRNXGBRNW1WWG9lSCteKk5oNmgqOW83aEBTPio6VyJJV21tVDg2SjZ1PiR1OGE5K2hqaG5LTT9YL15nTD8uYGc2U1BObSpSQ0U+YHRhO0AmcDZsLzVhUlBMMU9COzAqX0Q9ZFZCKjJeJUQyLCVaLk9KWGhvXDAnZVMzXjFxLiNPOSVLYDxxJ2BfZW4xXG9BPSFIMC5icmgnNCgoaFdBKiZFckZJRURVITc8SCcjPEg9K0pHQiJfaTgvX2RqU0dLU0E1T3NfJjZMcS5Fb2lDPzlcPilhMj81X1FvbiZAQ14mbThsajxJJiJOKSNXSkkoZVkwXXQuQG5aRE4nNDNiZyslcDNxWzNPRVhpNGtxVT9HRktcdFZgLzkycTtkPFlnYzxeQSRWRjdOJVcyLzE0dVo3LE1eQG9XRVAqI2lsXVU3VFxiYFVfPWwxZ0c0b1grM2VAcF1IZ0VsPTQxbV10TENgSkxOQURfNDBeNDVLTmJQKElsLz9SbTZLOVEiVWZBRWlgYylVKmFhJFdAKEMmLFpVIkZDJnU0Qj5kPDk+aHU3UzBCT1gjW2NWaFZBW1wqZEpBWGMlKyI8UWpMOUs9PVNRNm1ycCxvcWslaCZDZXBoVk1JXj1gNERGJDhOW2Jscl1mQTBgQUtwdGRuVT4sW2NpTSdEbDppc2hLTXJtOlFsJFczaE8wYm4rKjwqVWJwakAqQ0xWSTdVXlxXMXBIP00wWDM0VSJWSiwrZipETnJiYmsyUVBbVj1TTmUjaWM8P0MuRnBaYEhSXlJmIThNVnI7SG9CI2daPGBHVUNOZD4zMS5WUFMjZDE5LEowWV4xT25kJnNFaUteNVIjOTtEaFhTQ1NqW09hK2M2UzgsUVBoNFhqTDksX1htOEY/dGpLaVNUbkpASCkwbEMrTkppLFZiUiFvLitoQThRKGhZVS0oLylsZT9eVUVsWUMzNElbXmlBMVVfSUJJWmRgQyNURkI8aDlsUm1NODNNaVswcDlWR185UjJ0QTVwKVFnOllWUmpLT1NmRjpGYidXKiUjQ21kdDxfNmxbMkE8K1w4R2ZxJ2MyUyYsZz8mfj5lbmRzdHJlYW0KZW5kb2JqCjEyIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDIyMDAKPj4Kc3RyZWFtCkdiIi8nOTY4aUcmQUlJM20uY2ZVNDpEOClGJlFUcWolTzMzQ2Mvb2khZzBdXExFXV1aRXBFWiNtWGQpX1tWVTQ9aGBAPS1fXEtFLmExJ3FZXnFkcWhSLyk2QyFyK20xTydgX1glXlIqXl4+bSx0NCVzOTNhN1ZVWDdHdFtBKi0zNSUtRilrX1RVMkclQ151V0RpREMuUWxuXiNMUDhMWltSaCRhIVIydDRpMEZnKW1pLyxjXmdoaSMrVE5VKz5wVkxmXEtfckNeUz9QLz4yYi4yJipBUj8+bWUzLisvKm0rLjxsIkI3KkksMGNQWEFuIkZlLSRiJ1pJLzVNMnFuR1VlcyRTXzdUNnVPNlAzSi0tU08/PnUvSUFFJzpvcF1ET0RfOjZHbXNOZHBxUiQnVkZTR11zKUhuaWI0YkAucUZUYz5RczIhXkZLKVRlVGxqPWtGXDArPTg8Ry1bXV90aSxPUEo7N0xKYm1yUWZmOSpfdFRNRypKLjx1TC5XZHBNWzE1RVIqMV5EcFowMEhuRklFImgmOGZQQkxDSmtJLlFqQU9kbmEpVkw8Mz4lMFlONE8jazlWbjVELzhHRSlTX28/IV8jcEw1XVpEczRWUlwqX2M5bVBuPT1rNFxaa1JZM1lBQ3VKVmctaF5jTCM2ZzI4WEpKTWQnLz8hXFw5XXA5Si1BcHRRL2c0SzRaVSZEQy1TM0MyYFpKZWo9MEJUVTJcOnQ8YFVMViR0I0tDWk5OaE9Ea2BkWk9LXj4uPjZjKmsvU2ZROW9kVCYzJTFROE9gNyQ+MjhCK0lCbjVxOCU1NjBpIj9dLnJYW2tXaSNQLVA8IjFkQEddc09NYEpOV2M9PjNTZCVOSTE1XVUydWFCMVBPX0xPYGA9Y0VEWzk6WDRmZjAmVU9RL1I/JkFMcU1wJ09DOVFuTGdhaiJRNSlkV0FlSUxULyQiJ2NLakcnZlwpVlFUMjQhaSVYZVtrP04hbGxuJFc0YERrWlYiMCg/LyoqOXMuUWxgLEZoY10jTlpgOzRAbic9UGtscyE1IjBwOi1zWW9IUDtfbCtnW3JWZ1huJWY2Vy5bcDJUNVlsJiRVbFptaS9oYFpiI0ElInNFWkdfY2tLOyxgbV5EKyJXcWcuJ2E7MF8wdSQ5bEglaltOQS5BMVUjQjE+UkNYYWFJTz9rUFI0S2FkRTctPHRSRDFzO0NCby4qaiM/U1Q8ckdiV1YxYW1rPyJNVlZaZyhydTlfc0FlND9iNklgJXE7Xm89KnVObyFQXDFVQSw8T0hQc1pqa24kJHNIOVwzdXJtOCtdVm8lWS80WXRUdS8xJWFzUGxlQSdQOiJfR11MLUxEUyQtUW0/KFU5P1lEaVpmNWMpbjZfNiY1U2NGaz5TbzcwQm5cZVwsQyUoViNjIipcPztYdCsncEtqcioiXmBANlNHZ04xSEJoZlIjYk9SKjJkWzU7WDhqYGxVSjEkSzRjJl9aYnBmIyhJI1M/YzBsKDg/W0laaVknXWgsJiQnY0w4M3JUOD4/W2sscHU/NW9HOGI7Lis6ZDUhOjBBNERILi10SUgtMiZeKFk9KCtwOlEwTmA/QmNTK0kzNmgjN00vOWFLLSFKSyw5bkMtYmJMXl1JaTRdNVkjLVFjMFZOXksvLnI4IkooWHFeJUslSCYqRikhP2khZE9bYiwhUC8pWmlhX2BkbUBgIT9zSDVjaSVhJTFNREEwPF9SRm4yOGk0R2dlbG5AV21kK3IqKEVAbTNRJEFNNDhoQk9iJU8pSHRBWyZDPjNsTm5vKj9rVytQTj5mKEU3YlQ3S1ZeKGs2L2dnPlVIP1BnJmshR1Y3JTI4VS5dVidvWEtXKSUpPmIqaHAwNlpgUSMyZCwqRUdoSGIwLkxPI2gvKjY2KHI7LHAmMWZURSU9JEpNPG0oWz9xJExDWjtzdDxXJGkhRj5bTSVWUyVNRlFibF9RSkk2KF4vbm0yOXRdJTw4NS5mb2g4bi5BRChRXFw8bGo0L1xoRS84LjVpa0Nbaj5INiNAIU9TUVY/UUpNdGN1NWFjJmVabjslNFsyZ1omK0FHMHMydGcxaGZRZmQ0YFN1IjpxVFclMThcXTQuMFNTSjlYSV4vLGA7ZlUtUDxAXkhaPSRfYCZPcVtUJWBSMypbRDUmLVxhLChtJiEiXUZaaj1vWilIZmQ7O1BMXDclKEJrWytzKzlcV2oyO0FLYEBtdGkuMiJbYURVT1FDNiRdXF9lX0ElTSdAPWo6bGE1KkswSVt1KEJCS3NpQGBMRjAzaD9gUTEoSWAhazVnSS1uMTlNTT8vUlwiWC88REs7WFBxUCg6SXAkYGs4aUxsZmpdJ1tAO0BLRzhCJl9iKUZvLk8+I0lnW0NrPTVDJ1I9ZSN0VVJAbUQqRlwqZ3ArPGpvQm06KjREZlY6SDYybGttNlQ4SzRCYC4sMVwlWWAnIixqOU8odEtQTVg+Xls5RilaU2MjP2Z1bS9pIWlEKHJgMSMpJzIlKCk+QWt1Tz9qWEJiYlotITxdVG8jamZEXDdeUFNWR3JEdF1cKTxKZmo2SE8nOlI9Rm9ANjI4dEw8JkBzYV80P1ZDLVRfZ28kV1wyb2EjQF9zcydrLSQ4TlxIZ0EoTV07aDJ1IkZXOnNPW0Y1WWlSa0VAXlQ8P1E8YlRyZDNlaHQ/JztTVHBDMC5ASS8qNGFlVjtoLERALSIxKFRmL1crcClnKnFqc0MuZzshPnRLMF9WLF5qKFBdUURRJD44Ml5sXi9GNCFpclsrMzwpJVFSJTA0RT5NQDxdTyVSJE4qTUtoWFplRXNUPyduczYiTkMhcz9eYiF1YyozTExAVzNVWCliYmduJUBda21WSGtEczhBJj9ZVU9UVFw8Tl5BO1dqN19sR0QnVyZuN11NVDxBaSZtJSQ8cVpFZ3NhTm9JbjVCPUs7fj5lbmRzdHJlYW0KZW5kb2JqCjEzIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDExNTAKPj4Kc3RyZWFtCkdiIi8mZ01ZSiomOk86U2JUZTc7bS89ZSpIOiZnSi1qYCQvYEhCdXBhR3VCXU1ZTU8xKlVmaFgyUTtqMDwyalQvUkZ1WixiYWJhUDsjRmI+biM/T05SX3RVTiMpcEl0KU9NY19qcmBRKD80XFJpJypcX0Jlb0hWTmM7TlZvXkY+STlaPnRoQVVHUSlwTHBiTXA/YzJRO0shNkMjI2gpZ3EvQVJmZWJfQU1ZZWJbYEw/ZypTYzBNYSk+SDlAQG9PLjxwNykjUDtZalo6I3VjNEAvYUFya05ZZGcpYGlnZCUpOjN0ZkxkKWA8YiYhLUBJOG8ra1krTmtfL1w6WDdvY0Ulc0dHOU9UalRIdWY0J28kS3I5XVVPOjAzZXViW2wiJ2VtZ1xGTDBJdSFqIzVzKVdTOVUmTCkpaEpaXjFFQWI4WVRBSEJINHRvRFMxbltMNlI2ImtLT2QiRTciLEw5cUJBcG9JSCg3VjFaZVojJkBeQy8tPkpWWi0vYUVlLmNoL09EUDg+a0dZMG0+OklZWFQ3Z3EwaDw/SztQRk9lXkc/Sl1ob1VMMmZDPHVxM25XYHJkX1kzS1QrLWxdXFMpViRGb2I3OVIwXSJEOCZHPCwtND5QcEdLL1tVOUE3RFdaTlE8RjlIX3JxZltZNW1ScFw8dVMxRi4tWm1bJztBKEFhUEUwZUEmP2FkbmMxXCVPP0VMak5uM285QTJBbUVvW3BFXiszVztsJSJHQmVVOCdWKiZPYE1BOmYnO0teMFBaQzFvWFZRWm1TZWtrYG9YUFVsTitwMzYwOjxeMFljXlVVQTM6Y0klO0hBKnJoS1tAclA0LSFwKExtL2heRFtVRy9jQj5GXWVtUV01OFFjaGhlcUhtW19SUmA0UlpAKT8nZXM7ZVhOPXNzTzpqYHVYRFZeUTAjTT1EVy5jWVtdO0FEcEU6ZytIbmAjN0tfcXUlLl49Mj1nNzIrW2M3Y11nIjpfZ0lZUU1vPF4uZlBBI0xqNDgtNU9QUnExYkY/KHIpSGJqMElySmtoMG1ycmFQSGVUXE0mP3VnPDczWl0wbDclJHFPU0FOY2kyVSEmcFVCK2ghOz9EbzQiW0YjW0NyRD4/O11lZTUpMlFKbjtlNmdQQDxILktGMV0iMzs6OV5LPlk+TGdyOF9JVChiNSYiXjRWczw0XltZOWxkbUZeKjAuT2JYOGpgO0RoNFxeNllBQG44YjVNTTI0JGJJK1FWYklPOVpKQ0lBWk9JWiEmOE9aTCc2bTV1XEc5OFFpZWshV0NMXG5OTVVgczs5dGJeLl8jSTpTNkwkYCQ7UXAtSjJwRGs9SW9GN1MtWjNnS1hFbHBKP2lMaTg+cEIzXTEnXmYnOVohSkMxdVs5PjdnOCNfcyxFTC5CbkNbWy1WXFJTb01abmo0dDZvLzQpMEJFXmVxUklKSmhkMVEmXUZPJTFCOSltXT1BQFhJNDdNbC89W3MnQzU6PEsiIzEkIlNjVzUkODk/REdbLyhQXz9WMSpGWEEuRElmVDlHOnQ+fj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAxNAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDExMiAwMDAwMCBuIAowMDAwMDAwMjE5IDAwMDAwIG4gCjAwMDAwMDAzMzEgMDAwMDAgbiAKMDAwMDAwMDQ0NiAwMDAwMCBuIAowMDAwMDAwNzQ4IDAwMDAwIG4gCjAwMDAwMDA5NTMgMDAwMDAgbiAKMDAwMDAwMTE1OCAwMDAwMCBuIAowMDAwMDAxMjI3IDAwMDAwIG4gCjAwMDAwMDE1NjkgMDAwMDAgbiAKMDAwMDAwMTY0MSAwMDAwMCBuIAowMDAwMDAzMDczIDAwMDAwIG4gCjAwMDAwMDUzNjUgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8ZTljMDY4MGIyY2MzNWNjZWQxYWMxYTM5NzNlZjk0MmQ+PGU5YzA2ODBiMmNjMzVjY2VkMWFjMWEzOTczZWY5NDJkPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA5IDAgUgovUm9vdCA4IDAgUgovU2l6ZSAxNAo+PgpzdGFydHhyZWYKNjYwNwolJUVPRgo=";
+    function downloadContrato() {
+      var btn = document.getElementById('btn-descargar');
+      var iconClock = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+      var iconCheck = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      var iconDown  = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+
+      btn.innerHTML = iconClock + ' Preparando PDF...';
+      btn.style.opacity = '0.75';
+      btn.style.cursor = 'wait';
+
+      setTimeout(function() {
+        var a = document.createElement('a');
+        a.href = 'data:application/pdf;base64,' + _PDF_B64;
+        a.download = 'Acuerdo_Oscar_Sandoval_x_Gambo_Creativo.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        btn.innerHTML = iconCheck + ' Contrato descargado exitosamente';
+        btn.style.background = '#2E7D7D';
+        btn.style.color = '#F4EFE6';
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+
+        setTimeout(function() {
+          btn.innerHTML = iconDown + ' Descargar contrato para firma';
+          btn.style.background = 'var(--gold)';
+          btn.style.color = '#0B0F19';
+        }, 3500);
+      }, 350);
+    }
+  </script>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Acuerdo Comercial — Óscar Sandoval × Gambo Creativo</strong> &nbsp;·&nbsp; Documento confidencial entre las partes &nbsp;·&nbsp; Todas las condiciones están sujetas a revisión y firma de ambas partes</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('on'); observer.unobserve(entry.target); } }); },
+      { threshold: 0.1, rootMargin: '0px 0px -36px 0px' }
+    );
+    document.querySelectorAll('[data-r]').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
